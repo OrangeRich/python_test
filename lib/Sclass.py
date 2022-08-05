@@ -19,10 +19,10 @@ class Sclass:
 
         print('-------- HTTP response * end -------\n\n')
 
-    def class_list(self, gradeid=None):
+    def class_list(self, vcode=x_vcode, aciton=classlist_aciton, gradeid=None):
         params = {
             "vcode": vcode,
-            "action": list_aciton,
+            "action": aciton,
             "gradeid": gradeid
         }
 
@@ -31,10 +31,10 @@ class Sclass:
         self._printResponse(res)
         return res
 
-    def class_add(self, grade, name, studentlimit):
+    def class_add(self, grade, name, studentlimit, action=add_action, vcode=x_vcode):
         data = {
             "vcode": vcode,
-            "action": add_action,
+            "action": action,
             "grade": grade,
             "name": name,
             "studentlimit": studentlimit
@@ -44,11 +44,11 @@ class Sclass:
         self._printResponse(res)
         return res
 
-    def class_modify(self, classid, name, studentlit):
+    def class_modify(self, classid, name, studentlit, action=modify_action, vcode=x_vcode):
         data = {
             "classid": classid,
             "vcode": vcode,
-            "action": modify_action,
+            "action": action,
             "name": name,
             "studentlimit": studentlit
         }
@@ -56,7 +56,7 @@ class Sclass:
         self._printResponse(res)
         return res
 
-    def class_del(self, classid):
+    def class_del(self, classid, vcode=x_vcode):
         data = {
             "classid": classid,
             "vcode": vcode
